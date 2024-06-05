@@ -1,0 +1,45 @@
+import semillas.*
+
+describe "Test de semillas"{
+	/*mentas creadas para pruebas */
+	const menta1 = new Menta(altura = 1, anioDeObtencionDeSemilla = 2010)
+	const menta2 = new Menta(altura = 0.3, anioDeObtencionDeSemilla = 2008)
+	
+	/*soja creadas para pruebas */
+	
+	const soja1 = new Soja(altura = 0.6, anioDeObtencionDeSemilla = 2009)
+	
+	/*quinoas creadas para pruebas */
+	
+	const quinoa1 = new Quinoa(altura = 0.25, horasDeSolQueTolera = 12, anioDeObtencionDeSemilla = 2010)
+	const quinoa2 = new Quinoa(altura = 0.25, horasDeSolQueTolera = 9, anioDeObtencionDeSemilla = 2001)
+	
+	test "Pruebas con primera menta creada, no es fuerte, da semillas y el espacio ocupado es 3"{
+		assert.notThat(menta1.esFuerte())
+		assert.that(menta1.daNuevasSemillas())
+		assert.equals(3, menta1.espacioOcupado())
+	}
+	
+	test "Pruebas con segunda menta creada, no es fuerte, no da semillas y el espacio ocupado es 0.9"{
+		assert.notThat(menta2.esFuerte())
+		assert.notThat(menta2.daNuevasSemillas())
+		assert.equals(0.9, menta2.espacioOcupado())
+	}
+	
+	test "Pruebas soja creada, no es fuerte, no da semillas y el espacio ocupado es 0.3 y las horas de tolerancia al sol son 7"{
+		assert.equals(7, soja1.horasDeSolQueTolera())
+		assert.notThat(soja1.esFuerte())
+		assert.notThat(soja1.daNuevasSemillas())
+		assert.equals(0.3, soja1.espacioOcupado())
+	}
+	
+	test"Pruebas con primera quinoa creada, da nuevas semillas y es fuerte"{
+		assert.that(quinoa1.esFuerte())
+		assert.that(quinoa1.daNuevasSemillas())
+	}
+	
+	test"Pruebas con segunda quinoa creada, da nuevas semillas y no es fuerte"{
+		assert.notThat(quinoa2.esFuerte())
+		assert.that(quinoa2.daNuevasSemillas())
+	}
+}

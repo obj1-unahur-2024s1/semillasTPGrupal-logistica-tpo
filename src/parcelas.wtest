@@ -1,0 +1,35 @@
+import semillas.*
+import parcelas.*
+
+describe "test de parcelas y algunas plantas"{
+	/*parcela creada para pruebas */
+	const parcela1 = new Parcela(ancho = 20, largo = 1, horasDeSolQueRecibe = 8)
+	
+	/*sojas creadas para pruebas */
+	
+	const soja1 = new Soja(altura = 1.5, anioDeObtencionDeSemilla = 2009)
+	const soja2 = new Soja(altura = 1.5, anioDeObtencionDeSemilla = 2009)
+	const soja3 = new Soja(altura = 1.5, anioDeObtencionDeSemilla = 2009)
+	const soja4 = new Soja(altura = 1.5, anioDeObtencionDeSemilla = 2009)
+	const soja5 = new Soja(altura = 1.5, anioDeObtencionDeSemilla = 2009)
+	
+	test "test de parcela no tiene complicaciones y planta maximo hasta 4 plantas"{
+		parcela1.plantar(soja1)
+		parcela1.plantar(soja2)
+		parcela1.plantar(soja3)
+		parcela1.plantar(soja4)
+		
+		assert.equals(4, parcela1.capacidadMaximaDePlantasQueTolera())
+		assert.notThat(parcela1.tieneComplicaciones())
+	}
+	
+	test "test de parcela donde falla al plantar una 5ta planta de soja porque la capacidad maxima es de 4 plantas"{
+		parcela1.plantar(soja1)
+		parcela1.plantar(soja2)
+		parcela1.plantar(soja3)
+		parcela1.plantar(soja4)
+		parcela1.plantar(soja5)
+		
+		assert.equals(5, parcela1.capacidadMaximaDePlantasQueTolera())
+	}
+}

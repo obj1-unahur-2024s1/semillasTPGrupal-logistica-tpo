@@ -1,0 +1,28 @@
+import semillas.*
+import parcelas.*
+import OrganizacionINTA.*
+
+const parcela1 = new ParcelaEcologica(ancho = 50, largo = 1, horasDeSolQueRecibe = 8)
+const parcela2 = new ParcelaEcologica(ancho = 40, largo = 1, horasDeSolQueRecibe = 8)
+const soja1 = new Soja(altura = 1.5, anioDeObtencionDeSemilla = 2009)
+const soja2 = new Soja(altura = 1.5, anioDeObtencionDeSemilla = 2009)
+const soja3 = new Soja(altura = 1.5, anioDeObtencionDeSemilla = 2009)
+const soja4 = new Soja(altura = 1.5, anioDeObtencionDeSemilla = 2009)
+const soja5 = new Soja(altura = 1.5, anioDeObtencionDeSemilla = 2009)
+
+
+test "prueba de inta"{
+	inta.agregarParcela(parcela1)
+	inta.agregarParcela(parcela2)
+	
+	parcela1.plantar(soja1)
+	parcela1.plantar(soja2)
+	parcela1.plantar(soja3)
+	parcela1.plantar(soja4)
+	parcela1.plantar(soja5)
+	
+	parcela2.plantar(soja1)
+	parcela2.plantar(soja2)
+	
+	assert.equals(parcela1, inta.parcelaMasAutosustentable())
+}
