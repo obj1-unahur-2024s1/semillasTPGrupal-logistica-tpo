@@ -13,6 +13,9 @@ class Parcela {
 	method plantar(unaPlanta){
 		if(plantas.size() < self.capacidadMaximaDePlantasQueTolera() and self.horasDeSolQueRecibe() <= unaPlanta.horasDeSolQueTolera()) 
 			plantas.add(unaPlanta)
+		else {
+			self.error("La parcela alcanzo la cantidad maxima de plantas que tolera o la parcela recibió al menos 2 horas más de sol que los que la planta tolera")
+		}
 	}
 	method superficie() = ancho * largo
 	method anchoMayorQueLargo() = ancho > largo

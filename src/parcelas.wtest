@@ -30,6 +30,6 @@ describe "test de parcelas y algunas plantas"{
 		parcela1.plantar(soja4)
 		parcela1.plantar(soja5)
 		
-		assert.equals(5, parcela1.capacidadMaximaDePlantasQueTolera())
+		assert.throwsException(parcela1.capacidadMaximaDePlantasQueTolera())
 	}
 }

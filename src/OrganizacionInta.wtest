@@ -10,7 +10,6 @@ const soja3 = new Soja(altura = 1.5, anioDeObtencionDeSemilla = 2009)
 const soja4 = new Soja(altura = 1.5, anioDeObtencionDeSemilla = 2009)
 const soja5 = new Soja(altura = 1.5, anioDeObtencionDeSemilla = 2009)
 
-
 test "prueba de inta"{
 	inta.agregarParcela(parcela1)
 	inta.agregarParcela(parcela2)
